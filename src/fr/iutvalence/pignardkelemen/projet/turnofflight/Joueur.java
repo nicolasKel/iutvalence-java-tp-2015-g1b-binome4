@@ -1,11 +1,11 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight;
 
 /**
- * 
- * @author kelemenn
+ * TODO JAVADOC.
  *
+ * @author kelemenn
+ * @version TODO
  */
-
 public class Joueur {
-
+    /* TODO Vide… */
 }

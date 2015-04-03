@@ -1,20 +1,24 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight;
 
 /**
- * 
- * @author kelemenn
+ * TODO JAVADOC.
  *
+ * @author kelemenn
+ * @version TODO
  */
+public class Grille {
+    /* TODO JAVADOC. */
+    private final int   nbLignes;
+    /* TODO JAVADOC. */
+    private final int   nbColonnes;
+    /* TODO JAVADOC. */
+    /* TODO Final ? */
+    private       Lampe grille[][];
 
-public class Grille
-{
-	private final int nbLignes;
-	private final int nbColonnes;
-	private Lampe grille[][];
-
-	public Grille(int nbLig, int nbCol)
-	{
-		this.nbLignes = nbLig;
-		this.nbColonnes = nbCol;
-	}
+    /* TODO JAVADOC. */
+    public Grille(int nbLig, int nbCol) {
+        this.nbLignes = nbLig;
+        this.nbColonnes = nbCol;
+        /* TODO Et vous n'initialisez pas le tableau ? */
+    }
 }
