@@ -7,29 +7,31 @@ package fr.iutvalence.pignardkelemen.projet.turnofflight;
  * @version TODO
  */
 public class Player {
+    /** Default player's name. */
+    private static final String DEFAULT_NICKNAME = "player";
     /* TODO JAVADOC. */
     private final String nickname;
+    /* TODO Init ? */
     /* TODO JAVADOC. */
     private       int    score;
+    /* TODO Why here ??? */
     /* TODO JAVADOC. */
-    private       int    nbOfRounds;
-    /**Default player's name*/
-    private static final String DEFAULT_NICKNAME = "player"; 
+    private       int    round;
 
-    public Player()
-    {
-    	this.nickname = DEFAULT_NICKNAME;
-    }
-    
-    public Player(String nickname)
-    {
-    	this.nickname = nickname;
-    }
-    
     /* TODO JAVADOC. */
-    /* TODO Où est le calcul ? */
+    public Player() {
+        this.nickname = DEFAULT_NICKNAME;
+    }
+
+    /* TODO JAVADOC. */
+    public Player(String nickname) {
+        this.nickname = nickname;
+    }
+
+    /* TODO JAVADOC. */
     public int calculateScore() {
-    	this.score = nbOfRounds;
+        /* TODO ??? */
+        this.score = round;
         return this.score;
     }
 }
