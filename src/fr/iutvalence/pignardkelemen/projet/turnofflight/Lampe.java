@@ -9,22 +9,37 @@ package fr.iutvalence.pignardkelemen.projet.turnofflight;
 public class Lampe {
     // TODO : Faire une enumeration pour les etats
     /* TODO JAVADOC. */
-    public static final boolean ALLUMEE     = true;
+    public static final Etat ETAT_DEFAUT = Etat.ETEINT;
     /* TODO JAVADOC. */
-    public static final boolean ETEINTE     = false;
-    /* TODO JAVADOC. */
-    public static final boolean ETAT_DEFAUT = false;
-    /* TODO JAVADOC. */
-    /* TODO final ??? */
-    private final boolean etat;
+    private Etat etat;
 
     /* TODO JAVADOC. */
     public Lampe() {
-        etat = ETAT_DEFAUT;
+        this.etat = ETAT_DEFAUT;
     }
 
     /* TODO JAVADOC. */
-    public Lampe(boolean etatEntre) {
-        etat = etatEntre;
+    public Lampe(Etat etatEntre) {
+        this.etat = etatEntre;
+    }
+    
+    public Etat changerEtat()
+    {
+    	if (this.etat == Etat.ALLUME)
+    	{
+    		this.etat = Etat.ETEINT;
+    	}
+    	
+    	else
+    	{
+    		this.etat = Etat.ALLUME;
+    	}
+    	
+    	return this.etat;
+    }
+    
+    public Etat getEtat()
+    {
+    	return this.etat;
     }
 }
