@@ -7,13 +7,16 @@ package fr.iutvalence.pignardkelemen.projet.turnofflight;
  * @version TODO
  */
 public class Joueur {
-	/* TODO final??  */
-    private String pseudo;
-    private int score;
-    private int nbDeCoups;
-    
-    public int calculerScore()
-    {
-    	return score;
+    /* TODO JAVADOC. */
+    private final String pseudo;
+    /* TODO JAVADOC. */
+    private       int    score;
+    /* TODO JAVADOC. */
+    private       int    nbDeCoups;
+
+    /* TODO JAVADOC. */
+    /* TODO Où est le calcul ? */
+    public int calculerScore() {
+        return score;
     }
 }

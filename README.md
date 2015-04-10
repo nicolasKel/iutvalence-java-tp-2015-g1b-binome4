@@ -2,8 +2,10 @@ TurnOffLights
 =============
 
 
-## Remarques 
+## Remarks 
 
 - 03/04/2015 : 
-    - Pensez à passer votre environnement Eclipse en UTF-8 avec les fins de fichiers LINUX.
-    - Bossez votre jeu ! C'est vraiment léger !!!
+    - Setup Eclipse to use UTF-8 encoding and GNU/Linux EOL.
+    - Work on your game!
+- 10/04/2015 (12h04) :
+    - Translate all your files.
