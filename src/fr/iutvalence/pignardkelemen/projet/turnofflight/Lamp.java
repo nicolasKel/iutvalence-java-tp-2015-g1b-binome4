@@ -23,13 +23,13 @@ public class Lamp {
     }
 
     /* TODO JAVADOC. */
-    public State changeState() {
+    public State swap() {
         this.state = (this.state == State.ON) ? State.OFF : State.ON;
         return this.state;
     }
 
     /* TODO JAVADOC. */
-    public State getState() {
+    public State state() {
         return this.state;
     }
 }
