@@ -1,9 +1,9 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight;
 
 /* TODO JAVADOC. */
-public enum Etat {
+public enum State {
     /* TODO JAVADOC. */
-    ALLUME,
+    ON,
     /* TODO JAVADOC. */
-    ETEINT;
+    OFF;
 }
