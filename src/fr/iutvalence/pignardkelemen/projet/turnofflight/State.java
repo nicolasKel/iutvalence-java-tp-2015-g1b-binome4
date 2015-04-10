@@ -4,7 +4,19 @@ package fr.iutvalence.pignardkelemen.projet.turnofflight;
 public enum State
 {
 	/* TODO JAVADOC. */
-	ON,
+	ON("X"),
 	/* TODO JAVADOC. */
-	OFF;
+	OFF("O");
+	
+	private final String field;
+	
+	State (final String field)
+	{
+		this.field = field;
+	}
+	
+	public String toString()
+	{
+		return field;
+	}
 }

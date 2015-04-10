@@ -13,13 +13,12 @@ public class Player
 	/** Player's nickname. */
 	private final String nickname;
 
-	/* TODO JAVADOC. */
+	/** Default construtor.*/
 	public Player()
 	{
 		this.nickname = DEFAULT_NICKNAME;
 	}
-
-	/* TODO JAVADOC. */
+	/** Construtor with nickname parametre.*/
 	public Player(String nickname)
 	{
 		this.nickname = nickname;

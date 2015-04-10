@@ -40,6 +40,7 @@ public class Grid
 	/** Method which draw the grid on the window. */ 
 	public String toString()
 	{
+		/* TODO StringBuilder */
 		String total="";
 		
 		for (int line = 0; line < numberOfLines; line++)

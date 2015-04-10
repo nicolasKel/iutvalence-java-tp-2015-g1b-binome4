@@ -40,10 +40,6 @@ public class Lamp
 	
 	public String toString()
 	{
-		if (state == State.ON)
-			return "X";
-		
-		else
-			return "O";
+		return state.toString();
 	}
 }
