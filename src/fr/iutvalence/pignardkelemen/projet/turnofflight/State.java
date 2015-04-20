@@ -7,14 +7,17 @@ public enum State
 	ON("X"),
 	/* TODO JAVADOC. */
 	OFF("O");
-	
+
+	/* TODO JAVADOC. */
 	private final String field;
-	
+
+	/* TODO JAVADOC. */
 	State (final String field)
 	{
 		this.field = field;
 	}
-	
+
+	/* TODO JAVADOC. */
 	public String toString()
 	{
 		return field;
