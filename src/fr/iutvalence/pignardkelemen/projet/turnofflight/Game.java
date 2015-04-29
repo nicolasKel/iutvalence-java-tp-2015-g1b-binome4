@@ -51,9 +51,13 @@ public class Game
 			int line = sc.nextInt();
 			System.out.println("Enter the column of the lamp you want :");
 			int column = sc.nextInt();
-			this.grid.getLamp(new Position(line, column)).swap();
-
+			this.grid.swap(new Position(line, column));
 			System.out.println(this.grid);
+			if (this.grid.isAllShutdown()) {
+				// TODO
+				win = true;
+			}
+
 		}
 
 	}

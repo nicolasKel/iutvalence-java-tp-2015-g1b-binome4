@@ -40,11 +40,6 @@ public class Lamp
 	{
 		return this.state;
 	}
-
-	public Position getPos()
-	{
-		return this.pos;
-	}
 	
 	public String toString()
 	{

@@ -27,10 +27,7 @@ public class Grid
 	{
 		this.numberOfLines = numberOfLines;
 		this.numberOfColumns = numberOfColumns;
-		grid = new Lamp[numberOfLines][numberOfColumns];
-		/*
-		 * TODO Extract this init in a private method and later a dedicated class. The initial state generator.
-		 */
+		this.grid = new Lamp[numberOfLines][numberOfColumns];
 		initRandom(numberOfLines, numberOfColumns);
 
 	}
@@ -49,11 +46,6 @@ public class Grid
 			total += "| \n";
 		}
 		return total;
-	}
-
-	public Lamp getLamp(Position position)
-	{
-		return this.grid[position.getLine()][position.getColumn()];
 	}
 
 	private void init(int numberOfLines, int numberOfColumns)
@@ -88,5 +80,17 @@ public class Grid
 				}
 			}
 		}
+	}
+
+	public void swap(Position position)
+	{
+		this.grid[position.getLine()][position.getColumn()].swap();
+		// TODO Swap des proches
+	}
+
+	public boolean isAllShutdown()
+	{
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

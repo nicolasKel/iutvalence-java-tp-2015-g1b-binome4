@@ -25,5 +25,5 @@ public class Player
 	{
 		this.nickname = nickname;
 	}
-	
+
 }
