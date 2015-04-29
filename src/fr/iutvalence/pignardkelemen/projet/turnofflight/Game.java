@@ -13,6 +13,7 @@ public class Game {
     private final Player player;
 
     /* TODO Use the second constructor to define this one. */
+    
     /* TODO JAVADOC. */
     public Game(int numberOfLines, int numberOfColumns) {
         this.grid = new Grid(numberOfLines, numberOfColumns);

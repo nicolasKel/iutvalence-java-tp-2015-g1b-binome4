@@ -25,16 +25,11 @@ public class Grid {
         this.numberOfColumns = numberOfColumns;
         grid = new Lamp[numberOfLines][numberOfColumns];
         /* TODO Extract this init in a private method and later a dedicated class. The initial state generator. */
-        for (int line = 0; line < numberOfLines; line++) {
-            for (int column = 0; column < this.numberOfColumns; column++) {
-                // TODO Why not simply "if ((line % 2) == (column % 2)) {" ?
-                if ((((line % 2) == 0) && ((column % 2) == 0)) || (((line % 2) == 1) && ((column % 2) == 1))) {
-                    grid[line][column] = new Lamp(State.ON);
-                }
-                else { grid[line][column] = new Lamp(State.OFF); }
-            }
-        }
+        init (numberOfLines, numberOfColumns);
+       
     }
+    
+
 
     /** Method which draw the grid on the window. */
     public String toString() {
@@ -47,5 +42,17 @@ public class Grid {
             total += "| \n";
         }
         return total;
+    }
+    
+    
+    private void init (int numberOfLines, int numberOfColumns)
+    {
+    	 for (int line = 0; line < numberOfLines; line++) {
+             for (int column = 0; column < this.numberOfColumns; column++) {
+                 if ((line % 2) == (column % 2)) {
+                     grid[line][column] = new Lamp(State.ON);}
+                 else { grid[line][column] = new Lamp(State.OFF); }
+             }
+         }
     }
 }
