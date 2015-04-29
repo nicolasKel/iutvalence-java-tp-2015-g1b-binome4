@@ -12,7 +12,7 @@ public enum State
 	private final String field;
 
 	/* TODO JAVADOC. */
-	State (final String field)
+	State(final String field)
 	{
 		this.field = field;
 	}
