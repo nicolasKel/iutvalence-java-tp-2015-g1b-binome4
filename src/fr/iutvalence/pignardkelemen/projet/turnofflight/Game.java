@@ -45,15 +45,48 @@ public class Game
 	{
 		Scanner sc = new Scanner(System.in);
 
-		while (win != true)
+		while (!win)
 		{
-			System.out.println("Enter the line of the lamp you want :");
-			int line = sc.nextInt();
-			System.out.println("Enter the column of the lamp you want :");
-			int column = sc.nextInt();
+			int line = 0;
+			int column = 0;
+			boolean saisieOk = false;
+
+			while (!saisieOk)
+			{
+				try
+				{
+					System.out.println("Enter the line of the lamp you want :");
+					line = sc.nextInt();
+					if (line < 0 || line >= this.grid.getNumberOfLines())
+						throw new InvalidEntryException();
+					saisieOk = true;
+				} catch (InvalidEntryException e)
+				{
+					System.err.println("\n*** Please enter a valid line ***");
+				}
+			}
+
+			saisieOk = false;
+
+			while (!saisieOk)
+			{
+				try
+				{
+					System.out.println("Enter the column of the lamp you want :");
+					column = sc.nextInt();
+					if (column < 0 || column >= this.grid.getNumberOfColumns())
+						throw new InvalidEntryException();
+					saisieOk = true;
+				} catch (InvalidEntryException e)
+				{
+					System.err.println("\n*** Please enter a valid column ***");
+				}
+			}
+
 			this.grid.swap(new Position(line, column));
 			System.out.println(this.grid);
-			if (this.grid.isAllShutdown()) {
+			if (this.grid.isAllShutdown())
+			{
 				// TODO
 				win = true;
 			}

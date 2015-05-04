@@ -11,7 +11,7 @@ public class Application
 	/* TODO JAVADOC. */
 	public static void main(String[] args)
 	{
-		Game game = new Game("Nicolas", 8, 8);
+		Game game = new Game("Nicolas", 4, 4);
 		game.start();
 		game.gameLoop();
 	}
