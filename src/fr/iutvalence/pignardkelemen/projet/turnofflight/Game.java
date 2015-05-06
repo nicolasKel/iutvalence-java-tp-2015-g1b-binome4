@@ -8,89 +8,66 @@ import java.util.Scanner;
  * @author kelemenn
  * @version TODO
  */
-public class Game
-{
-	/** Grid of lamps. */
-	private final Grid grid;
-	/** Default name of players. */
-	private final Player player;
+public class Game {
+    /** Grid of lamps. */
+    private final Grid   grid;
+    /** Default name of players. */
+    private final Player player;
 
-	private boolean win;
+    /* TODO JAVADOC. */
+    public Game(int numberOfLines, int numberOfColumns) {
+        grid = new GridRandom(numberOfLines, numberOfColumns);
+        player = new Player();
+    }
 
-	/* TODO Use the second constructor to define this one. */
+    /* TODO JAVADOC. */
+    public Game(String nickName, int numberOfLines, int numberOfColumns) {
+        grid = new GridRandom(numberOfLines, numberOfColumns);
+        player = new Player(nickName);
+    }
 
-	/** Constructor... */
-	public Game(int numberOfLines, int numberOfColumns)
-	{
-		this.grid = new GridRandom(numberOfLines, numberOfColumns);
-		this.player = new Player();
-		this.win = false;
-	}
+    /* TODO JAVADOC. */
+    public void start() {
+        Scanner sc = new Scanner(System.in);
 
-	/* TODO JAVADOC. */
-	public Game(String nickName, int numberOfLines, int numberOfColumns)
-	{
-		this.grid = new GridRandom(numberOfLines, numberOfColumns);
-		this.player = new Player(nickName);
-		this.win = false;
-	}
+        System.out.println(grid);
+        while (!grid.isAllShutdown()) {
 
-	/* TODO JAVADOC. */
-	public void start()
-	{
-		System.out.println(this.grid);
-	}
+            /* TODO In a private method. */
+            boolean saisieNOK = true;
+            int line = 0;
+            while (saisieNOK) {
+                try {
+                    System.out.println("Enter the line of the lamp you want:");
+                    line = sc.nextInt();
+                    if ((line < 0) || (line >= grid.getNumberOfLines())) { throw new InvalidEntryException(); }
+                    saisieNOK = false;
+                }
+                catch (InvalidEntryException ignore) {
+                    System.err.println("\n*** Please enter a valid line ***");
+                }
+            }
 
-	public void gameLoop()
-	{
-		Scanner sc = new Scanner(System.in);
+            /* TODO Use the same method. */
+            saisieNOK = true;
+            int column = 0;
+            while (saisieNOK) {
+                try {
+                    System.out.println("Enter the column of the lamp you want:");
+                    column = sc.nextInt();
+                    if ((column < 0) || (column >= grid.getNumberOfColumns())) { throw new InvalidEntryException(); }
+                    saisieNOK = false;
+                }
+                catch (InvalidEntryException ignore) {
+                    System.err.println("\n*** Please enter a valid column ***");
+                }
+            }
 
-		while (!win)
-		{
-			int line = 0;
-			int column = 0;
-			boolean saisieOk = false;
+            grid.swap(new Position(line, column));
+            System.out.println(grid);
+        }
+        // TODO Win message.
 
-			while (!saisieOk)
-			{
-				try
-				{
-					System.out.println("Enter the line of the lamp you want :");
-					line = sc.nextInt();
-					if (line < 0 || line >= this.grid.getNumberOfLines())
-						throw new InvalidEntryException();
-					saisieOk = true;
-				} catch (InvalidEntryException e)
-				{
-					System.err.println("\n*** Please enter a valid line ***");
-				}
-			}
-
-			saisieOk = false;
-
-			while (!saisieOk)
-			{
-				try
-				{
-					System.out.println("Enter the column of the lamp you want :");
-					column = sc.nextInt();
-					if (column < 0 || column >= this.grid.getNumberOfColumns())
-						throw new InvalidEntryException();
-					saisieOk = true;
-				} catch (InvalidEntryException e)
-				{
-					System.err.println("\n*** Please enter a valid column ***");
-				}
-			}
-			this.grid.swap(new Position(line, column));
-			System.out.println(this.grid);
-			if (this.grid.isAllShutdown())
-			{
-				// TODO
-				win = true;
-			}
-
-		}
-
-	}
+        // TODO Close the scanner
+    }
 }
