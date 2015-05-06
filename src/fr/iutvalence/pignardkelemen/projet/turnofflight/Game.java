@@ -10,19 +10,19 @@ import java.util.Scanner;
  */
 public class Game
 {
-	/* TODO JAVADOC. */
+	/** Grid of lamps. */
 	private final Grid grid;
-	/* TODO JAVADOC. */
+	/** Default name of players. */
 	private final Player player;
 
 	private boolean win;
 
 	/* TODO Use the second constructor to define this one. */
 
-	/* TODO JAVADOC. */
+	/** Constructor... */
 	public Game(int numberOfLines, int numberOfColumns)
 	{
-		this.grid = new Grid(numberOfLines, numberOfColumns);
+		this.grid = new GridRandom(numberOfLines, numberOfColumns);
 		this.player = new Player();
 		this.win = false;
 	}
@@ -30,7 +30,7 @@ public class Game
 	/* TODO JAVADOC. */
 	public Game(String nickName, int numberOfLines, int numberOfColumns)
 	{
-		this.grid = new Grid(numberOfLines, numberOfColumns);
+		this.grid = new GridRandom(numberOfLines, numberOfColumns);
 		this.player = new Player(nickName);
 		this.win = false;
 	}
@@ -82,7 +82,6 @@ public class Game
 					System.err.println("\n*** Please enter a valid column ***");
 				}
 			}
-
 			this.grid.swap(new Position(line, column));
 			System.out.println(this.grid);
 			if (this.grid.isAllShutdown())

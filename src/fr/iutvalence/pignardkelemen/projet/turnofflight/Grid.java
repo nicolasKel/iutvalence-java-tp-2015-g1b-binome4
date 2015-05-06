@@ -6,15 +6,16 @@ package fr.iutvalence.pignardkelemen.projet.turnofflight;
  * @author kelemenn
  * @version TODO
  */
- // TODO Abstract class
-public class Grid
+// TODO Abstract class.
+public abstract class Grid
 {
 	/** Number of line of the grid. */
-	private final int numberOfLines;
+	protected final int numberOfLines;
 	/** Number of column of the grid. */
-	private final int numberOfColumns;
+	protected final int numberOfColumns;
 	/** The grid. */
-	private final Lamp grid[][];
+	protected final Lamp grid[][];
+	protected int numberOfLightsOn;
 
 	/**
 	 * Construtor.
@@ -29,14 +30,13 @@ public class Grid
 		this.numberOfLines = numberOfLines;
 		this.numberOfColumns = numberOfColumns;
 		this.grid = new Lamp[numberOfLines][numberOfColumns];
-		initRandom(numberOfLines, numberOfColumns);
+		init();
 
 	}
 
-	/** Method which draw the grid on the window. */
+	/** Method which draw the grid on the window. Redefinition of the method toString from the Object class */
 	public String toString()
 	{
-		/* TODO StringBuilder */
 		String total = "";
 		for (int line = 0; line < numberOfLines; line++)
 		{
@@ -49,66 +49,62 @@ public class Grid
 		return total;
 	}
 
-	private void init(int numberOfLines, int numberOfColumns)
-	{
-		for (int line = 0; line < numberOfLines; line++)
-		{
-			for (int column = 0; column < this.numberOfColumns; column++)
-			{
-				if ((line % 2) == (column % 2))
-				{
-					grid[line][column] = new Lamp(State.ON, new Position(line, column));
-				} else
-				{
-					grid[line][column] = new Lamp(State.OFF, new Position(line, column));
-				}
-			}
-		}
-	}
+	/**
+	 * Abstract method for the implementation of the grid.
+	 * You HAVE TO init numberOfLightsOn and you HAVE TO have a full grid 
+	 */
+	protected abstract void init();
 
-	private void initRandom(int numberOfLines, int numberOfColumns)
-	{
-		for (int line = 0; line < numberOfLines; line++)
-		{
-			for (int column = 0; column < this.numberOfColumns; column++)
-			{
-				if (Math.random() > 0.5)
-				{
-					grid[line][column] = new Lamp(State.ON, new Position(line, column));
-				} else
-				{
-					grid[line][column] = new Lamp(State.OFF, new Position(line, column));
-				}
-			}
-		}
-	}
 
+	/**
+	 * Method to swap the light at the position specified in parameter and the neighbor.
+	 *
+	 * @param position
+	 *            position of the light to swap.
+	 */
 	public void swap(Position position)
 	{
-		this.grid[position.getLine()][position.getColumn()].swap();
+		int line = position.getLine();
+		int column = position.getColumn();
+		
+		if (this.grid[line][column].swap() == State.ON)
+		{
+			this.numberOfLightsOn++;
+		}
 
-		if (position.getLine() != 0)
+		if (line != 0)
 		{
-			this.grid[position.getLine() - 1][position.getColumn()].swap();
+			if (this.grid[line - 1][column].swap() == State.ON)
+			{
+				this.numberOfLightsOn++;
+			}
 		}
-		if (position.getColumn() < this.numberOfColumns - 1)
+		if (column < this.numberOfColumns - 1)
 		{
-			this.grid[position.getLine()][position.getColumn() + 1].swap();
+			if (this.grid[line][column + 1].swap() == State.ON)
+			{
+				this.numberOfLightsOn++;
+			}
 		}
-		if (position.getColumn() != 0)
+		if (column != 0)
 		{
-			this.grid[position.getLine()][position.getColumn() - 1].swap();
+			if (this.grid[line][column - 1].swap() == State.ON)
+			{
+				this.numberOfLightsOn++;
+			}
 		}
-		if (position.getLine() < this.numberOfLines - 1)
+		if (line < this.numberOfLines - 1)
 		{
-			this.grid[position.getLine()+1][position.getColumn()].swap();
+			if (this.grid[line + 1][column].swap() == State.ON)
+			{
+				this.numberOfLightsOn++;
+			}
 		}
 	}
 
 	public boolean isAllShutdown()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return numberOfLightsOn == 0;
 	}
 
 	public int getNumberOfLines()
