@@ -1,18 +1,14 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight;
 
-/* TODO JAVADOC. */
-public class GridRandom extends Grid
+public class GridLevelOne extends Grid
 {
-	/** Ratio of ON lights. */
-	private static final double ON_RATIO = 0.5;
 
 	/* TODO JAVADOC. */
-	public GridRandom(int numberOfLines, int numberOfColumns)
+	public GridLevelOne(int numberOfLines, int numberOfColumns)
 	{
 		super(numberOfLines, numberOfColumns);
 	}
 
-	/* TODO JAVADOC. */
 	@Override
 	protected void init()
 	{
@@ -21,7 +17,16 @@ public class GridRandom extends Grid
 			for (int column = 0; column < this.numberOfColumns; column++)
 			{
 				Position position = new Position(line, column);
-				State initial = (Math.random() > ON_RATIO) ? State.ON : State.OFF;
+				State initial;
+				if ((line / 2) == (column / 2))
+				{
+					initial = State.ON;
+					numberOfLightsOn++;
+				} 
+				else
+				{
+					initial = State.OFF;
+				}
 				grid[line][column] = new Lamp(initial, position);
 			}
 		}
