@@ -22,11 +22,14 @@ public class Lamp {
         this.pos = new Position(0, 0);
     }
 
-    /**
-     * Constructor with two parameters.
-     *
-     * @param position Position of the lamp you want to construct.
-     */
+	/**
+	 * Constructor with two parameters.
+	 * 
+	 * @param state
+	 *            State of the lamp.
+	 * @param position
+	 *            Position of the lamp you want to construct.
+	 */
     public Lamp(State state, Position position) {
         this.state = state;
         this.pos = position;
@@ -43,7 +46,7 @@ public class Lamp {
         return this.state;
     }
 
-    /* TODO JAVADOC. */
+	/** Method which draw the state of the lamp on the window. Redefinition of the toString method from the Object class. */
     public String toString() {
         return state.toString();
     }

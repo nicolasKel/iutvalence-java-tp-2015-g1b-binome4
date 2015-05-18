@@ -3,12 +3,20 @@ package fr.iutvalence.pignardkelemen.projet.turnofflight;
 public class GridLevelOne extends Grid
 {
 
-	/* TODO JAVADOC. */
+	/**
+	 * Construtor with two parameters.
+	 *
+	 * @param numberOfLines
+	 *            The number of lines of the created grid.
+	 * @param numberOfColumns
+	 *            The number of columns of the created grid.
+	 */
 	public GridLevelOne(int numberOfLines, int numberOfColumns)
 	{
 		super(numberOfLines, numberOfColumns);
 	}
 
+	/* TODO JAVADOC. */
 	@Override
 	protected void init()
 	{

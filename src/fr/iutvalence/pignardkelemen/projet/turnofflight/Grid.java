@@ -100,19 +100,19 @@ public abstract class Grid
 		}
 	}
 
-	/* TODO JAVADOC. */
+	/** Method which is activated when all lights are turned off, win of the player. */
 	public boolean isAllShutdown()
 	{
 		return numberOfLightsOn == 0;
 	}
 
-	/* TODO JAVADOC. */
+	/** Method which return the number of lines of the grid. */
 	public int getNumberOfLines()
 	{
 		return numberOfLines;
 	}
 
-	/* TODO JAVADOC. */
+	/** Method which return the number of columns of the grid. */
 	public int getNumberOfColumns()
 	{
 		return numberOfColumns;
@@ -123,11 +123,26 @@ public abstract class Grid
 	{
 		// TODO StringBuilder
 		String total = "";
-		for (int line = 0; line < numberOfLines; line++)
+		for (int line = -1; line < numberOfLines; line++)
 		{
+			if ( line == -1)
+			{
+				total += "_";
+			}
+			else
+			{
+				total += line;
+			}
 			for (int column = 0; column < numberOfColumns; column++)
 			{
-				total += "|" + grid[line][column];
+				if ( line == -1 )
+				{
+					total += "|" + column;
+				}
+				else
+				{
+					total += "|" + grid[line][column];
+				}
 			}
 			total += "| \n";
 		}

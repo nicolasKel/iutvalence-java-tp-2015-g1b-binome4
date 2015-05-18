@@ -6,7 +6,14 @@ public class GridRandom extends Grid
 	/** Ratio of ON lights. */
 	private static final double ON_RATIO = 0.5;
 
-	/* TODO JAVADOC. */
+	/**
+	 * Construtor with two parameters.
+	 *
+	 * @param numberOfLines
+	 *            The number of lines of the created grid.
+	 * @param numberOfColumns
+	 *            The number of columns of the created grid.
+	 */
 	public GridRandom(int numberOfLines, int numberOfColumns)
 	{
 		super(numberOfLines, numberOfColumns);

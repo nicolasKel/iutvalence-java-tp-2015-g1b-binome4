@@ -3,10 +3,10 @@ package fr.iutvalence.pignardkelemen.projet.turnofflight;
 import java.util.Scanner;
 
 /**
- * TODO JAVADOC.
+ * Game class
  *
  * @author kelemenn
- * @version TODO
+ * @version 1.0
  */
 public class Game
 {
@@ -16,7 +16,14 @@ public class Game
 	private final Player player;
 	private Scanner entryUser;
 
-	/* TODO JAVADOC. */
+	/**
+	 * Construtor with two parameters.
+	 *
+	 * @param numberOfLines
+	 *            The number of lines of the created grid.
+	 * @param numberOfColumns
+	 *            The number of columns of the created grid.
+	 */
 	public Game(int numberOfLines, int numberOfColumns)
 	{
 		grid = new GridLevelOne(numberOfLines, numberOfColumns);
@@ -24,7 +31,16 @@ public class Game
 		entryUser = new Scanner(System.in);
 	}
 
-	/* TODO JAVADOC. */
+	/**
+	 * Construtor with three parameters.
+	 * 
+	 * @param nickName
+	 *            The name of the player.
+	 * @param numberOfLines
+	 *            The number of lines of the created grid.
+	 * @param numberOfColumns
+	 *            The number of columns of the created grid.
+	 */
 	public Game(String nickName, int numberOfLines, int numberOfColumns)
 	{
 		grid = new GridLevelOne(numberOfLines, numberOfColumns);
