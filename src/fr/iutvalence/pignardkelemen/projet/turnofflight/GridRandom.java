@@ -1,6 +1,11 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight;
 
-/* TODO JAVADOC. */
+/**
+ * Class GridRandom inherited from Grid class.
+ *
+ * @author kelemenn
+ * @version 1.22
+ */
 public class GridRandom extends Grid
 {
 	/** Ratio of ON lights. */
@@ -19,7 +24,9 @@ public class GridRandom extends Grid
 		super(numberOfLines, numberOfColumns);
 	}
 
-	/* TODO JAVADOC. */
+	/**
+	 * Redefinition of the abstract method from Grid. Initialisation of a random-grid.
+	 */
 	@Override
 	protected void init()
 	{

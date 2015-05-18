@@ -1,6 +1,11 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight;
 
-/* TODO JAVADOC. */
+/**
+ * Class which represent a position.
+ *
+ * @author kelemenn
+ * @version 1.22
+ */
 public class Position
 {
 	/** Line the grid of lamp. */

@@ -6,15 +6,17 @@ import java.util.Scanner;
  * Game class
  *
  * @author kelemenn
- * @version 1.0
+ * @version 1.22
  */
 public class Game
 {
+    /** Default player's nickname. */
+    private static final String DEFAULT_PLAYER_NICKNAME = "player";
 	/** Grid of lamps. */
 	private final Grid grid;
-	/** Default name of players. */
 	private final Player player;
 	private Scanner entryUser;
+	
 
 	/**
 	 * Construtor with two parameters.
@@ -27,7 +29,7 @@ public class Game
 	public Game(int numberOfLines, int numberOfColumns)
 	{
 		grid = new GridLevelOne(numberOfLines, numberOfColumns);
-		player = new Player();
+		player = new Player(DEFAULT_PLAYER_NICKNAME);
 		entryUser = new Scanner(System.in);
 	}
 
@@ -48,7 +50,7 @@ public class Game
 		entryUser = new Scanner(System.in);
 	}
 	
-	/* TODO JAVADOC */
+	/** Method to get the entry of a user and swap at the answered position. */
 	private void entry()
 	{
 		boolean saisieOK = false;
@@ -91,7 +93,7 @@ public class Game
 		grid.swap(new Position(line, column));
 	}
 
-	/* TODO JAVADOC. */
+	/** This method loop while the player don't win. */
 	public void start()
 	{
 		

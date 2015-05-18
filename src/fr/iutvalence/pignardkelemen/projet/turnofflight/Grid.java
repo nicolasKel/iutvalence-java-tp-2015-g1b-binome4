@@ -1,10 +1,10 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight;
 
 /**
- * TODO JAVADOC.
+ * Abstract class Grid to implement all the types of grids (random, half on...)
  *
  * @author kelemenn
- * @version TODO
+ * @version 1.22
  */
 public abstract class Grid
 {
@@ -14,11 +14,11 @@ public abstract class Grid
 	protected final int numberOfColumns;
 	/** The grid. */
 	protected final Lamp grid[][];
-	/* TODO JAVADOC. */
+	/** Number of lights on in the grid. */
 	protected int numberOfLightsOn;
 
 	/**
-	 * Construtor.
+	 * Constructor.
 	 *
 	 * @param numberOfLines
 	 *            The number of lines of the created grid.
@@ -30,11 +30,12 @@ public abstract class Grid
 		this.numberOfLines = numberOfLines;
 		this.numberOfColumns = numberOfColumns;
 		grid = new Lamp[numberOfLines][numberOfColumns];
+		this.numberOfLightsOn = 0;
 		init();
 	}
 
 	/**
-	 * Abstract method for the implementation of the grid. You HAVE TO init numberOfLightsOn and you HAVE TO have a full grid
+	 * Abstract method for the implementation of the grid. You HAVE TO init numberOfLightsOn and you HAVE TO have a full grid.
 	 */
 	protected abstract void init();
 
@@ -118,7 +119,7 @@ public abstract class Grid
 		return numberOfColumns;
 	}
 
-	/** Method which draw the grid on the window. Redefinition of the method toString from the Object class */
+	/** Method which draw the grid on the window. Redefinition of the method toString from the Object class. */
 	public final String toString()
 	{
 		// TODO StringBuilder

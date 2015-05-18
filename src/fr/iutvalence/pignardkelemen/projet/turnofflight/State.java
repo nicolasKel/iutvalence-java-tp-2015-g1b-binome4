@@ -3,8 +3,8 @@ package fr.iutvalence.pignardkelemen.projet.turnofflight;
 /**
  * Enumeration of possible lamp's states.
  *
- * @author TODO
- * @version TODO
+ * @author pignardf
+ * @version 1.22
  */
 public enum State {
     /** ON. */

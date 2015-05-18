@@ -1,5 +1,11 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight;
 
+/**
+ * Class GridLevelOne inherited from Grid class.
+ *
+ * @author kelemenn
+ * @version 1.22
+ */
 public class GridLevelOne extends Grid
 {
 
@@ -16,7 +22,9 @@ public class GridLevelOne extends Grid
 		super(numberOfLines, numberOfColumns);
 	}
 
-	/* TODO JAVADOC. */
+	/**
+	 * Redefinition of the abstract method from Grid. Initialisation of the Level One grid.
+	 */
 	@Override
 	protected void init()
 	{

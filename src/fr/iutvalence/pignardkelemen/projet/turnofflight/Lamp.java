@@ -1,26 +1,17 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight;
 
 /**
- * TODO JAVADOC.
+ * Class which represent a Lamp.
  *
  * @author kelemenn
- * @version TODO
+ * @version 1.22
  */
 public class Lamp {
-    /** Constant for the default state of a lamp. */
-    public static final State DEFAULT_STATE = State.OFF;
-    /* TODO You never use this field. */
     /** Position of the lamp (contains line and column). */
     private final Position pos;
     /** State of a lamp (On/Off). */
     private       State    state;
 
-    /* TODO You never use this constructor. */
-    /** Default constructor. */
-    public Lamp() {
-        this.state = DEFAULT_STATE;
-        this.pos = new Position(0, 0);
-    }
 
 	/**
 	 * Constructor with two parameters.
@@ -35,13 +26,13 @@ public class Lamp {
         this.pos = position;
     }
 
-    /* TODO JAVADOC. */
+    /** Method which change the light state. */
     public State swap() {
         this.state = (this.state == State.ON) ? State.OFF : State.ON;
         return this.state;
     }
 
-    /* TODO JAVADOC. */
+    /** Getter which return the state of a lamp. */
     public State state() {
         return this.state;
     }

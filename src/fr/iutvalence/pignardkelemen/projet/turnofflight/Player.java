@@ -1,24 +1,21 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight;
 
 /**
- * TODO JAVADOC.
+ * Class which represent a player.
  *
  * @author kelemenn
- * @version TODO
+ * @version 1.22
  */
 public class Player {
-    /* TODO The default name should not be here. */
-    /** Default player's nickname. */
-    private static final String DEFAULT_NICKNAME = "player";
     /** Player's nickname. */
     private final String nickname;
 
-    /** Default construtor. */
-    public Player() {
-        this.nickname = DEFAULT_NICKNAME;
-    }
 
-    /** Construtor with nickname parametre. */
+    /** Construtor with one parametre.
+     * 
+     *	@param nickname :
+     *  			The nickname of the player. 
+     */
     public Player(String nickname) {
         this.nickname = nickname;
     }

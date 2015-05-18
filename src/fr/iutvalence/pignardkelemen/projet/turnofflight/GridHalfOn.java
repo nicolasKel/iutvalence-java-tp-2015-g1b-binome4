@@ -1,6 +1,11 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight;
 
-/* TODO JAVADOC. */
+/**
+ * Class GridHalfOn inherited from Grid class.
+ *
+ * @author kelemenn
+ * @version 1.22
+ */
 public class GridHalfOn extends Grid
 {
 
@@ -17,7 +22,9 @@ public class GridHalfOn extends Grid
 		super(numberOfLines, numberOfColumns);
 	}
 
-	/* TODO JAVADOC. */
+	/**
+	 * Redefinition of the abstract method from Grid. Initialisation of a half-on-grid.
+	 */
 	@Override
 	protected void init()
 	{
