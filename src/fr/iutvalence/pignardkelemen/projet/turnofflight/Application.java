@@ -27,7 +27,10 @@ public class Application {
         {
         	game = new Game(4, 4);
         }
+        
 
         game.start();
+        
+        entry.close();
     }
 }

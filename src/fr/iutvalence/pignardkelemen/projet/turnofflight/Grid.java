@@ -122,7 +122,6 @@ public abstract class Grid
 	/** Method which draw the grid on the window. Redefinition of the method toString from the Object class. */
 	public final String toString()
 	{
-		// TODO StringBuilder
 		String total = "";
 		for (int line = -1; line < numberOfLines; line++)
 		{

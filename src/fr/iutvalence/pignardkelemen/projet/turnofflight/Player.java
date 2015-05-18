@@ -19,4 +19,9 @@ public class Player {
     public Player(String nickname) {
         this.nickname = nickname;
     }
+    
+    public String getNickname()
+    {
+    	return this.nickname;
+    }
 }

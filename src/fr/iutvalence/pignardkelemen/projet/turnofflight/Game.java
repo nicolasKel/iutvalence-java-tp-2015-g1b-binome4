@@ -104,7 +104,7 @@ public class Game
 			System.out.println(grid);
 		}
 
-		System.out.println("Congratulation, You have switched off all the lights!");
+		System.out.println("Congratulation " + player.getNickname() + " , You have switched off all the lights!");
 
 		entryUser.close();
 	}
