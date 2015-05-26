@@ -8,10 +8,8 @@ import java.io.File;
 import java.io.IOException; 
 import javax.imageio.ImageIO
 
-
 import fr.iutvalence.pignardkelemen.projet.turnofflight.controler.PositionInterface;
 import fr.iutvalence.pignardkelemen.projet.turnofflight.model.Position;
-package fr.iutvalence.pignardkelemen.projet.turnofflight.model.Grid;
 
 public class Button extends JButton implements MouseListener
 {
@@ -22,17 +20,28 @@ public class Button extends JButton implements MouseListener
 	{
 		super();
 		this.pos = pos;
-		try
+		if( true )
 		{
-			img = ImageIO.read(new File("ampoule.png"));
+			try
+			{
+				img = ImageIO.read(new File("ampoule.png"));
+			{
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}else
 		{
-		catch (IOException e)
-		{
-			e.printStackTrace();
+			try
+			{
+				img = ImageIO.read(new File("black.png"));
+			{
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
 		}
-		
 		this.addMouseListener(this);
-		
 	}
 	
 	public void mouseClicked(MouseEvent event)
