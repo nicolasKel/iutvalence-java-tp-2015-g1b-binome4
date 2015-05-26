@@ -1,4 +1,4 @@
-package fr.iutvalence.pignardkelemen.projet.turnofflight;
+package fr.iutvalence.pignardkelemen.projet.turnofflight.model;
 
 /**
  * Class InvalidEntryException inherited from Exception class. Exception catch when the user type an invalid number.

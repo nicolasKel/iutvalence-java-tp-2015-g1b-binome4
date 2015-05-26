@@ -1,4 +1,4 @@
-package fr.iutvalence.pignardkelemen.projet.turnofflight;
+package fr.iutvalence.pignardkelemen.projet.turnofflight.model;
 
 import java.util.Scanner;
 
@@ -107,5 +107,10 @@ public class Game
 		System.out.println("Congratulation, You have switched off all the lights!");
 
 		entryUser.close();
+	}
+	
+	public Grid getGrid()
+	{
+		return this.grid;
 	}
 }

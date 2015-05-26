@@ -1,4 +1,4 @@
-package fr.iutvalence.pignardkelemen.projet.turnofflight;
+package fr.iutvalence.pignardkelemen.projet.turnofflight.model;
 
 /**
  * TODO JAVADOC.

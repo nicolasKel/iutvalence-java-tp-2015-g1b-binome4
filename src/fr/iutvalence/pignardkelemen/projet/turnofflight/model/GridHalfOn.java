@@ -1,15 +1,13 @@
-package fr.iutvalence.pignardkelemen.projet.turnofflight;
+package fr.iutvalence.pignardkelemen.projet.turnofflight.model;
 
 /**
- * Class GridRandom inherited from Grid class.
+ * Class GridHalfOn inherited from Grid class.
  *
  * @author kelemenn
  * @version 1.22
  */
-public class GridRandom extends Grid
+public class GridHalfOn extends Grid
 {
-	/** Ratio of ON lights. */
-	private static final double ON_RATIO = 0.5;
 
 	/**
 	 * Construtor with two parameters.
@@ -19,13 +17,13 @@ public class GridRandom extends Grid
 	 * @param numberOfColumns
 	 *            The number of columns of the created grid.
 	 */
-	public GridRandom(int numberOfLines, int numberOfColumns)
+	public GridHalfOn(int numberOfLines, int numberOfColumns)
 	{
 		super(numberOfLines, numberOfColumns);
 	}
 
 	/**
-	 * Redefinition of the abstract method from Grid. Initialisation of a random-grid.
+	 * Redefinition of the abstract method from Grid. Initialisation of a half-on-grid.
 	 */
 	@Override
 	protected void init()
@@ -35,7 +33,16 @@ public class GridRandom extends Grid
 			for (int column = 0; column < this.numberOfColumns; column++)
 			{
 				Position position = new Position(line, column);
-				State initial = (Math.random() > ON_RATIO) ? State.ON : State.OFF;
+				State initial;
+				if ((line % 2) == (column % 2))
+				{
+					initial = State.ON;
+					numberOfLightsOn++;
+				} 
+				else
+				{
+					initial = State.OFF;
+				}
 				grid[line][column] = new Lamp(initial, position);
 			}
 		}

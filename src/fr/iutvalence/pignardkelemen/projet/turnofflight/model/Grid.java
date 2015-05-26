@@ -1,4 +1,4 @@
-package fr.iutvalence.pignardkelemen.projet.turnofflight;
+package fr.iutvalence.pignardkelemen.projet.turnofflight.model;
 
 /**
  * Abstract class Grid to implement all the types of grids (random, half on...)
