@@ -43,7 +43,7 @@ public class Application
 	{
 		Game game;
 		game = new Game("Nicolas", 4, 4);
-		MainWindow window = new MainWindow(4, 4);
+		MainWindow window = new MainWindow(4, 4, game.getGrid());
 		window.display();
 	}
 }

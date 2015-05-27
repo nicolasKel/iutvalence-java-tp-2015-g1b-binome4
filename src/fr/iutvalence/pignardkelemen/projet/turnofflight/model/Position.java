@@ -1,14 +1,12 @@
 package fr.iutvalence.pignardkelemen.projet.turnofflight.model;
 
-import fr.iutvalence.pignardkelemen.projet.turnofflight.controler.PositionInterface;
-
 /**
  * Class which represent a position.
  *
  * @author kelemenn
  * @version 1.22
  */
-public class Position implements PositionInterface
+public class Position
 {
 	/** Line the grid of lamp. */
 	private int line;

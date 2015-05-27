@@ -6,7 +6,7 @@ package fr.iutvalence.pignardkelemen.projet.turnofflight.model;
  * @author kelemenn
  * @version 1.22
  */
-public abstract class Grid
+public abstract class Grid 
 {
 	/** Number of line of the grid. */
 	protected final int numberOfLines;
@@ -117,6 +117,11 @@ public abstract class Grid
 	public int getNumberOfColumns()
 	{
 		return numberOfColumns;
+	}
+	
+	public int getNumberOfLightsOn()
+	{
+		return numberOfLightsOn;
 	}
 
 	/** Method which draw the grid on the window. Redefinition of the method toString from the Object class. */
