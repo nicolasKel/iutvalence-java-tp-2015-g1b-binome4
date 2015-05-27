@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import fr.iutvalence.pignardkelemen.projet.turnofflight.model.Grid;
 import fr.iutvalence.pignardkelemen.projet.turnofflight.model.Position;
+import fr.iutvalence.pignardkelemen.projet.turnofflight.model.Lamp;
 
 public class MainWindow extends JFrame
 {
@@ -35,7 +36,7 @@ public class MainWindow extends JFrame
 		pannel = new JPanel();
 		pannelTitle = new JPanel();
 		pannelWin = new JPanel();
-		
+
 		Font typeface = new Font("Arial", Font.BOLD, 8);
 		LABEL_TITLE.setFont(typeface);
 		LABEL_TITLE.setForeground(Color.blue);
@@ -47,7 +48,14 @@ public class MainWindow extends JFrame
 		{
 			for (int column = 0; column < j; column++)
 			{
-				Button button = new Button(new Position(line, column), this, ButtonColor.YELLOW);
+				if (Lamp.State.ON)
+				{
+					color = ButtonColor.YELLOW;
+				} else
+				{
+					color = ButtonColor.BLACK;
+				}
+				Button button = new Button(new Position(line, column), this, color);
 				pannel.add(button);
 			}
 		}
@@ -58,6 +66,9 @@ public class MainWindow extends JFrame
 			LABEL_WIN.setForeground(Color.white);
 			pannelWin.add(LABEL_WIN);
 		}
+		panelTitle.setLocation(null);
+		panel.setLocation(150,150);//test please
+		this.setContentPane(pannelTitle);
 		this.setContentPane(pannel);
 	}
 
@@ -74,6 +85,6 @@ public class MainWindow extends JFrame
 	public void swap(Position pos)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 }
