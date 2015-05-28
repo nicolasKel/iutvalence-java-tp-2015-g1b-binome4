@@ -11,27 +11,19 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import fr.iutvalence.pignardkelemen.projet.turnofflight.model.Grid;
 import fr.iutvalence.pignardkelemen.projet.turnofflight.model.Position;
 
 public class Button extends JButton implements MouseListener
 {
 	private Position pos;
-	private Image imageBlack;
-	private Image imageLight;
+	private MainWindow window;
 
 	public Button(Position pos, MainWindow window, ButtonColor color)
 	{
 		super();
 		this.pos = pos;
-		/*try
-		{
-			imageLight = ImageIO.read(new File("ampoule.png"));
-			imageBlack = ImageIO.read(new File("black.png"));
-		} catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		*/
+		this.window = window;
 		this.addMouseListener(this);
 		if (color == ButtonColor.BLACK)
 			this.setBackground(Color.BLACK);
@@ -39,9 +31,17 @@ public class Button extends JButton implements MouseListener
 			this.setBackground(Color.YELLOW);
 	}
 
-	public void mouseClicked(MouseEvent event, MainWindow window)
+	public ButtonColor changeColor()
 	{
-		window.swap(pos);
+		if (this.getBackground() == Color.YELLOW)
+		{
+			this.setBackground(Color.BLACK);
+			return ButtonColor.YELLOW;
+		} else
+		{
+			this.setBackground(Color.YELLOW);
+			return ButtonColor.YELLOW;
+		}
 	}
 
 	@Override
@@ -75,7 +75,6 @@ public class Button extends JButton implements MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
-		// TODO Auto-generated method stub
-		
+		window.swap(this.pos);
 	}
 }

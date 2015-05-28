@@ -42,8 +42,8 @@ public class Application
 	public static void guiLauncher()
 	{
 		Game game;
-		game = new Game("Nicolas", 4, 4);
-		MainWindow window = new MainWindow(4, 4, game.getGrid());
-		window.display();
+		game = new Game("Nicolas", 2, 2);
+		MainWindow window = new MainWindow(game.getGrid());
+		window.loop();
 	}
 }

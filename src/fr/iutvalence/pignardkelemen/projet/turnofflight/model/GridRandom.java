@@ -30,12 +30,21 @@ public class GridRandom extends Grid
 	@Override
 	protected void init()
 	{
+		State initial;
 		for (int line = 0; line < this.numberOfLines; line++)
 		{
 			for (int column = 0; column < this.numberOfColumns; column++)
 			{
 				Position position = new Position(line, column);
-				State initial = (Math.random() > ON_RATIO) ? State.ON : State.OFF;
+				if (Math.random() > ON_RATIO)
+				{
+					initial = State.ON;
+					this.numberOfLightsOn++;
+				}
+				else
+				{
+					initial = State.OFF;
+				}
 				grid[line][column] = new Lamp(initial, position);
 			}
 		}

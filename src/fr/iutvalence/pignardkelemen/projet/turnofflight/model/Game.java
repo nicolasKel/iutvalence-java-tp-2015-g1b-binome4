@@ -28,7 +28,7 @@ public class Game
 	 */
 	public Game(int numberOfLines, int numberOfColumns)
 	{
-		grid = new GridLevelOne(numberOfLines, numberOfColumns);
+		grid = new GridRandom(numberOfLines, numberOfColumns);
 		player = new Player(DEFAULT_PLAYER_NICKNAME);
 		entryUser = new Scanner(System.in);
 	}
@@ -45,7 +45,7 @@ public class Game
 	 */
 	public Game(String nickName, int numberOfLines, int numberOfColumns)
 	{
-		grid = new GridLevelOne(numberOfLines, numberOfColumns);
+		grid = new GridRandom(numberOfLines, numberOfColumns);
 		player = new Player(nickName);
 		entryUser = new Scanner(System.in);
 	}

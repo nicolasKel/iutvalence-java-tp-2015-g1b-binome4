@@ -33,7 +33,7 @@ public class Lamp {
     }
 
     /** Getter which return the state of a lamp. */
-    public State state() {
+    public State getState() {
         return this.state;
     }
 

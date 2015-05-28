@@ -2,16 +2,18 @@ package fr.iutvalence.pignardkelemen.projet.turnofflight.view;
 
 import java.awt.Font;
 import java.awt.GridLayout;
-
 import java.awt.Color;
+import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import fr.iutvalence.pignardkelemen.projet.turnofflight.model.Grid;
 import fr.iutvalence.pignardkelemen.projet.turnofflight.model.Position;
 import fr.iutvalence.pignardkelemen.projet.turnofflight.model.Lamp;
+import fr.iutvalence.pignardkelemen.projet.turnofflight.model.State;
 
 public class MainWindow extends JFrame
 {
@@ -20,35 +22,39 @@ public class MainWindow extends JFrame
 	public final static String TITLE = "Turn off light";
 	public final static String WIN = "Congratulation you WIN !!!";
 
-	private JPanel pannel;
-	private JPanel pannelWin;
-	private JPanel pannelTitle;
+	private JPanel panel;
+	private JPanel panelWin;
+	private JPanel panelTitle;
 	public static final JLabel LABEL_TITLE = new JLabel(TITLE);
-	public static final JLabel LABEL_WIN = new JLabel(WIN);
+	private Button gridButton[][];
+	private Grid grid;
 
-	public MainWindow(int i, int j, Grid grid)
+	public MainWindow(Grid grid)
 	{
 		super(TITLE);
 		this.setSize(WIDTH, HEIGHT);
 		setLocationRelativeTo(null);
 		setResizable(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pannel = new JPanel();
-		pannelTitle = new JPanel();
-		pannelWin = new JPanel();
+		this.panel = new JPanel();
+		this.grid = grid;
+		this.panelTitle = new JPanel();
+		this.panelWin = new JPanel();
+		this.gridButton = new Button[grid.getNumberOfLines()][grid.getNumberOfColumns()];
 
-		Font typeface = new Font("Arial", Font.BOLD, 8);
-		LABEL_TITLE.setFont(typeface);
-		LABEL_TITLE.setForeground(Color.blue);
-		pannelTitle.add(LABEL_TITLE);
+	}
 
-		pannel.setBackground(Color.white);
-		pannel.setLayout(new GridLayout(i, j, 3, 3));
-		for (int line = 0; line < i; line++)
+	public void loop()
+	{
+		panel.setBackground(Color.white);
+		panel.setLayout(new GridLayout(grid.getNumberOfLines(), grid.getNumberOfColumns(), 3, 3));
+		ButtonColor color = null;
+
+		for (int line = 0; line < grid.getNumberOfLines(); line++)
 		{
-			for (int column = 0; column < j; column++)
+			for (int column = 0; column < grid.getNumberOfColumns(); column++)
 			{
-				if (Lamp.State.ON)
+				if (grid.getLamp(new Position(line, column)).getState() == State.ON)
 				{
 					color = ButtonColor.YELLOW;
 				} else
@@ -56,20 +62,24 @@ public class MainWindow extends JFrame
 					color = ButtonColor.BLACK;
 				}
 				Button button = new Button(new Position(line, column), this, color);
-				pannel.add(button);
+				this.gridButton[line][column] = button;
+				panel.add(button);
+
 			}
 		}
-		if (grid.getNumberOfLightsOn() == 0)
+		this.setContentPane(panel);
+
+		while (!grid.isAllShutdown())
 		{
-			pannelWin.setBackground(Color.black);
-			LABEL_WIN.setFont(typeface);
-			LABEL_WIN.setForeground(Color.white);
-			pannelWin.add(LABEL_WIN);
+			System.out.println(this.grid.getNumberOfLightsOn());
+			this.display();
 		}
-		panelTitle.setLocation(null);
-		panel.setLocation(150,150);//test please
-		this.setContentPane(pannelTitle);
-		this.setContentPane(pannel);
+		win();
+	}
+
+	public void win()
+	{
+		JOptionPane.showMessageDialog(null, WIN, "Win!", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void display()
@@ -84,7 +94,25 @@ public class MainWindow extends JFrame
 
 	public void swap(Position pos)
 	{
-		// TODO Auto-generated method stub
+		grid.swap(pos);
+		gridButton[pos.getLine()][pos.getColumn()].changeColor();
+
+		if (pos.getLine() != 0)
+		{
+			gridButton[pos.getLine() - 1][pos.getColumn()].changeColor();
+		}
+		if (pos.getColumn() < (grid.getNumberOfColumns() - 1))
+		{
+			gridButton[pos.getLine()][pos.getColumn() + 1].changeColor();
+		}
+		if (pos.getColumn() != 0)
+		{
+			gridButton[pos.getLine()][pos.getColumn() - 1].changeColor();
+		}
+		if (pos.getLine() < (this.grid.getNumberOfLines() - 1))
+		{
+			gridButton[pos.getLine() + 1][pos.getColumn()].changeColor();
+		}
 
 	}
 }

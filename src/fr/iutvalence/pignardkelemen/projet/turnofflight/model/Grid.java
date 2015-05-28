@@ -98,6 +98,10 @@ public abstract class Grid
 			{
 				numberOfLightsOn++;
 			}
+			else
+			{
+				numberOfLightsOn--;
+			}
 		}
 	}
 
@@ -121,7 +125,7 @@ public abstract class Grid
 	
 	public int getNumberOfLightsOn()
 	{
-		return numberOfLightsOn;
+		return this.numberOfLightsOn;
 	}
 
 	/** Method which draw the grid on the window. Redefinition of the method toString from the Object class. */
@@ -154,4 +158,10 @@ public abstract class Grid
 		}
 		return total;
 	}
+	
+	public Lamp getLamp(Position pos)
+	{
+		return grid[pos.getLine()][pos.getColumn()];
+	}
 }
+
